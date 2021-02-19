@@ -10,7 +10,7 @@ export default class AuthAPI {
       })
       .then(({ data }) => {
         User.token = data.jwt;
-        console.log(data);
+        return data;
       })
       .catch(console.log);
   }
@@ -24,7 +24,7 @@ export default class AuthAPI {
       })
       .then(({ data }) => {
         User.token = data.jwt;
-        console.log(data);
+        return data;
       })
       .catch(console.log);
   }
