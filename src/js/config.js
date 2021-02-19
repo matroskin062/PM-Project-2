@@ -10,7 +10,13 @@ const axiosInstance = axios.create({
   },
 });
 
-axiosInstance.defaults.headers.common.Authorization =
-  (User.token && `Bearer ${User.token}`) || '';
+axiosInstance.interceptors.request.use((config) => {
+  if (User.token) {
+    Object.assign(config.headers, {
+      Authorization: `Bearer ${User.token}`,
+    });
+  }
+  return config;
+});
 
 export default axiosInstance;
