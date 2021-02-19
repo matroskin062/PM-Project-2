@@ -3,14 +3,12 @@ import axiosInstance from './config';
 
 export default class AuthAPI {
   static login({ identifier, password }) {
-    console.log(axiosInstance.headers);
     return axiosInstance
       .post('/auth/local', {
         identifier,
         password,
       })
       .then(({ data }) => {
-        console.log(axiosInstance.headers);
         User.token = data.jwt;
         return data;
       })
