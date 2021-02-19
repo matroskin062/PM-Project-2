@@ -43,7 +43,7 @@ body{
 }
 .board{
     height: 100vh;
-    transition: filter;
+    transition: all;
     transition-duration: 1s;
     filter: none;
 }
@@ -66,7 +66,7 @@ body{
 
 }
 .no-login>.board{
-    filter: blur(5px);
+    filter: grayscale(.5)  blur(5px);
 }
 .no-login .login-wrap{
     display: block;
@@ -84,6 +84,7 @@ body{
     text-align: center;
 }
 .info-wrap h3{
+    font-size: 90%;
     text-align: center;
 }
 .info-wrap h4{
@@ -102,4 +103,33 @@ body{
     height:2px;
     margin: 40px 0;
     background:rgba(255,255,255,.2);
+}
+
+.board-groups{
+    overflow-x: scroll;
+    margin: 0 25px 25px 25px;
+    height: calc(100vh - 125px);
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.task-group{
+    min-width: 350px;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 50%;
+}
+::-webkit-scrollbar-track {
+    background: #FFFFFF00;
+}
+::-webkit-scrollbar-thumb {
+    background: #60423499;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #0d98c7;
+}
+.bggb{
+    width: 300vw
 }
