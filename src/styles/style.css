@@ -42,9 +42,9 @@ body{
     border-radius: 25px;
 }
 .board{
+    padding: 0 10px;
     height: 100vh;
-    transition: all;
-    transition-duration: 1s;
+    transition: all 1s;
     filter: none;
 }
 .no-login{
@@ -104,14 +104,24 @@ body{
     margin: 40px 0;
     background:rgba(255,255,255,.2);
 }
-
+.board h1{
+    width: 50%;
+    float: left;
+    margin: 25px 15px;
+    height: 50px;
+    font-family: mistral;
+    text-shadow: #0d98c7 1px 0 10px;
+    font-size: 50px;
+}
 .board-groups{
+    color: #1f1b1a;
     overflow-x: scroll;
     margin: 0 25px 25px 10px;
     height: calc(100vh - 110px);
     display: flex;
     flex-direction: row;
     gap: 50px;
+
 }
 .task-group{
     height: 100%;
@@ -138,19 +148,45 @@ body{
 }
 .tasks{
     overflow-y: scroll;
-    height: 100%;
+    height: 90%;
+    padding-bottom: 15px;
     display: flex;
     flex-direction: column-reverse;
     gap: 25px;
 }
 .task{
+    margin: 10px;
     min-height: 200px;
     background-color: #FFFFFF;
     border-radius: 50px;
     padding: 30px;
 }
+
+.task>h3{
+    font-size: 18px;
+    text-align: center;
+    text-decoration: underline;
+}
+.task p{
+    margin-top: 10px;
+    color: #1f1b1aaa;
+    font-size: 14px;
+}
+.task .spend{
+    display: block;
+    float: left;
+}
+.task .spend{
+    display: block;
+    float: right;
+}
+
+
+
+
 ::-webkit-scrollbar {
     width: 4px;
+    height: 6px;
     border-radius: 50%;
 }
 ::-webkit-scrollbar-track {
