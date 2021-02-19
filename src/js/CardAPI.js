@@ -1,28 +1,28 @@
 import axiosInstance from './config';
 
 export default class CardAPI {
-  static async getCardStatuses() {
+  static getCardStatuses() {
     return axiosInstance
       .get('/statuses')
       .then((response) => response.data)
       .catch(console.log);
   }
 
-  static async getCards() {
+  static getCards() {
     return axiosInstance
       .get('/cards')
       .then((response) => response.data)
       .catch(console.log);
   }
 
-  static async getCard(id) {
+  static getCard(id) {
     return axiosInstance
       .get(`/cards/${id}`)
       .then((response) => response.data)
       .catch(console.log);
   }
 
-  static async createCard({ title, description, status }) {
+  static createCard({ title, description, status }) {
     return axiosInstance
       .post('/cards', {
         title,
@@ -33,7 +33,7 @@ export default class CardAPI {
       .catch(console.log);
   }
 
-  static async updateCard({ id, title, description, status }) {
+  static updateCard({ id, title, description, status }) {
     return axiosInstance
       .put(`/cards/${id}`, {
         title,
@@ -44,7 +44,7 @@ export default class CardAPI {
       .catch(console.log);
   }
 
-  static async deleteCard(id) {
+  static deleteCard(id) {
     return axiosInstance
       .delete(`/cards/${id}`)
       .then((response) => response.data)
