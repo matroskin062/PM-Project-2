@@ -92,6 +92,15 @@ button, input[type="submit"], .button, .btn, input[type="button"]{
     border-radius: 25px;
 
 }
+
+.error{
+    color: var(--error-text);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
 .no-login>.board,
 .mob-menu>.board,
 .edit>.board{

@@ -15,6 +15,7 @@
 
 .search-area input{
     position: absolute;
+
     top: 0;
     left: 0;
     width: 100%;;
@@ -52,6 +53,7 @@
 .search-area:hover input,
 .search-area:focus input{
     display: block;
+    background-color: var(--task-color);
 }
 
 .add-area:hover .fa,
@@ -61,5 +63,6 @@
     background: var(--second-color);
     color: var(--modal-text);
 }
+
 
 
