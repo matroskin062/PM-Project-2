@@ -1,7 +1,7 @@
 .progress {
     margin: 5px 0;
-    background: rgba(255,255,255,0.4);
-    border: solid 1px #60423499;
+    background: var(--scroll);
+    border: solid 1px var(--scroll);
     border-radius: 100px;
     align-items: center;
     position: relative;
@@ -12,9 +12,9 @@
 }
 
 .progress-value {
-    box-shadow: 20px 0px 20px 0px #0d98c7;
-    color: #FFFFFF;
-    background: #0d98c7;
+    box-shadow: 20px 0px 20px 0px var(--second-color);
+    color: var(--modal-text);
+    background: var(--second-color);
     text-align: center;
     width: 0;
 }

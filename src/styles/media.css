@@ -1,0 +1,150 @@
+@media screen and (max-width: 1366px){
+    .task-group{
+        min-width: 230px;
+    }
+    .task-group .task{
+        border-radius: 30px;
+        padding: 20px;
+    }
+    .login-html {
+        position: absolute;
+        padding: 30px 50px;
+    }
+    .login-form .group .input, .login-form .group .button, .login-form .group .select {
+        margin: 5px 0;
+        padding: 10px 20px;
+        border-radius: 15px;
+    }
+}
+@media screen and (max-width: 1280px){
+    .task-group{
+        min-width: 290px;
+    }
+}
+@media screen and (max-height: 700px){
+    .info-wrap .user-img {
+        margin: 20px auto;
+        width: 40%;
+    }
+    .hr {
+        margin: 20px 0;
+    }
+    .no-login>.side-bar, .edit>.side-bar {
+        top: 5vh;
+        left: 25vw;
+        width: 50vw;
+        height: 90vh;
+        border-radius: 20px;
+    }
+}
+@media screen and (max-width: 848px){
+    .search-area:hover, .search-area:focus {
+        width: 250px;
+    }
+}
+@media screen and (orientation: portrait){    .main{
+    display: block;
+}
+    .side-bar {
+        float: left;
+        width:0;
+        min-width: 0;
+        padding: 0;
+    }
+    .no-login>.side-bar, .edit>.side-bar {
+        top: 30vh;
+        left: 10vw;
+        width: 80vw;
+        height: 40vh;
+        border-radius: 15px;
+    }
+    .no-login #menuToggle,
+    .edit #menuToggle{
+        display: none;
+    }
+    #menuToggle {
+        display: flex;
+    }
+    .board h1 {
+        margin-left: 110px;
+    }
+    .task-group {
+        min-width: 43vw;
+    }
+    .mob-menu .side-bar{
+        width: 50vw;
+    }
+}
+@media screen and (max-width: 700px){
+    .main{
+        display: block;
+    }
+    .task-group {
+        min-width: 92vw;
+    }
+    .side-bar {
+        float: left;
+        width:0;
+        min-width: 0;
+        padding: 0;
+    }
+    .no-login>.side-bar, .edit>.side-bar {
+        top: 30vh;
+        left: 10vw;
+        width: 80vw;
+        height: 40vh;
+        border-radius: 15px;
+    }
+    .no-login #menuToggle,
+    .edit #menuToggle{
+        display: none;
+    }
+    #menuToggle {
+        display: flex;
+    }
+    .board h1 {
+        margin-left: 110px;
+    }
+    .mob-menu .side-bar{
+        width: 100vw;
+
+        border-radius: 0;
+    }
+    .side-bar .user-img{
+        width: 35%;
+    }
+    #menuToggle span {
+        width: 40px;
+        height: 6px;
+        margin-bottom: 7px;
+    }
+    .board h1 {
+        margin-left: 80px;
+        height: 45px;
+        font-size: 40px;
+    }
+    .search-area, .add-area {
+        margin: 25px 10px;
+
+    }
+    .search-area:hover,
+    .search-area:focus{
+        margin: 3px 22vw;
+    }
+}
+@media screen and (max-width: 400px){
+    .search-area, .add-area {
+        margin: 5px;
+    }
+    .add-area{
+        margin-top: 25px;
+    }
+
+    .no-login>.side-bar, .edit>.side-bar {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+}
