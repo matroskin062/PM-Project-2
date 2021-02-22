@@ -17,7 +17,7 @@
     <title>Pro-lo-lo</title>
   </head>
   <body>
-  <div id="main" class="main edit">
+  <div id="main" class="main no-login">
     <div id="menuToggle">
       <input id="burger" type="checkbox" />
       <span id="span1"></span>
@@ -41,11 +41,11 @@
                 <input id="pass" type="password" class="input" data-type="password">
               </div>
               <div class="group">
-                <input id="check" type="checkbox" class="check" checked>
+                <input id="check" id="keep" type="checkbox" class="check" checked>
                 <label for="check"><span class="icon"></span> Keep me Signed in</label>
               </div>
               <div class="group">
-                <input type="submit" class="button" value="Sign In">
+                <input type="submit" id="sing-in-btn" class="button" value="Sign In">
               </div>
             </div>
             <div class="sign-up-htm">
@@ -63,11 +63,11 @@
               </div>
 
               <div class="group">
-                <input type="submit" class="button" value="Sign Up">
+                <input id="sing-up-btn" type="submit" class="button" value="Sign Up">
               </div>
 
             </div>
-            <p class="error"> It`s very good evening!</p>
+            <p class="error" id="auth-error"> It`s very good evening!</p>
           </div>
         </div>
       </div>
@@ -252,5 +252,6 @@
       }
     })
   </script>
+  <script src="./js/script.js" type="module"></script>
   </body>
 </html>
