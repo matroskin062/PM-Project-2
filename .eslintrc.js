@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
+  parser: 'babel-eslint',
   extends: ['airbnb-base', 'prettier'],
   parserOptions: {
     ecmaVersion: 12,
@@ -10,7 +11,6 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
-    semi: [2, 'never'],
   },
   plugins: ['prettier'],
 };
