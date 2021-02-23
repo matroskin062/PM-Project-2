@@ -5,11 +5,11 @@ class BoardUI {
   async render() {
     this.statuses = await CardAPI.getCardStatuses();
     this.cards = await CardAPI.getCards();
-    this.statuses.map((status) => {
+    this.statuses.forEach((status) => {
       const colCards = this.cards.filter(
         (card) => card.status === status.value
       );
-      return new ColumnUI(status, colCards).createColumn();
+      new ColumnUI(status, colCards).createColumn();
     });
   }
 }
