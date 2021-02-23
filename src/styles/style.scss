@@ -1,7 +1,8 @@
 @import "reset";
 @import "colors";
-@import "board";
 @import "header";
+@import "board";
+@import "modals";
 
 body {
     background-color: $main-background;

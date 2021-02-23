@@ -12,13 +12,63 @@
   <div class="user-info active">
     <img src="./img/user-icon.svg" alt="user icon">
     <p class="username">asdasdasd</p>
-    <input class="header-button" type="button" value="Log Out">
+    <input class="header-button" type="button" value="Logout">
   </div>
-  <div class="auth ">
-    <input class="header-button" type="button" value="Log In">
-    <input class="header-button" type="button" value="Registration">
+  <div class="auth">
+    <input class="header-button" type="button" value="Login">
+    <input class="header-button" type="button" value="SignUp">
   </div>
 </header>
+
+<div class="modal login-modal">
+  <img class="modal-close-btn" src="img/delete-icon.svg" alt="close">
+  <p class="modal-title">Login Form</p>
+  <div class="data">
+    <label for="identifier">Username or Email</label>
+    <input type="text" id="identifier">
+  </div>
+  <div class="data">
+    <label for="login-pass">Password</label>
+    <input type="password" id="login-pass">
+  </div>
+  <input class="modal-btn" type="button" value="Login">
+  <div class="link">Not a member? <a id="signup-redirect" href="#">Signup now</a></div>
+</div>
+
+<div class="modal login-modal">
+  <img class="modal-close-btn" src="img/delete-icon.svg" alt="close">
+  <p class="modal-title">SignUp Form</p>
+  <div class="data">
+    <label for="username">Username</label>
+    <input type="text" id="username">
+  </div>
+  <div class="data">
+    <label for="email">Email</label>
+    <input type="email" id="email">
+  </div>
+  <div class="data">
+    <label for="signup-pass">Password</label>
+    <input type="password" id="signup-pass">
+  </div>
+  <input class="modal-btn" type="button" value="Sign Up">
+  <div class="link">Already have an account? <a id="login-redirect" href="#">Login now</a></div>
+</div>
+
+
+<div class="modal login-modal">
+  <img class="modal-close-btn" src="img/delete-icon.svg" alt="close">
+  <p class="modal-title">Task Form</p>
+  <div class="data">
+    <label for="title">Title</label>
+    <input type="text" id="title">
+  </div>
+  <div class="data">
+    <label for="description">Description</label>
+    <textarea id="description"></textarea>
+  </div>
+  <input class="modal-btn" type="button" value="Update Task">
+</div>
+
 <div class="board">
   <h2 class="title">Task board</h2>
   <ul class="column-list">
