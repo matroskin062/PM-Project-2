@@ -1,0 +1,58 @@
+header {
+  background-color: $header-background;
+  padding: 10px 20px;
+  height: 60px;
+
+
+  > .user-info {
+    display: none;
+    color: $card-background;
+    height: 100%;
+    column-gap: 10px;
+    justify-content: flex-end;
+
+    > img {
+      width: auto;
+    }
+
+    > .username {
+      align-self: center;
+      user-select: none;
+    }
+
+
+  }
+
+  > .auth {
+    display: none;
+    height: 100%;
+    column-gap: 10px;
+    justify-content: flex-end;
+  }
+
+  .active {
+    display: flex;
+  }
+
+
+  .header-button {
+    padding: 0 20px;
+    color: $card-background;
+    background-color: $header-button-background;
+    border-radius: 5px;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $header-button-background-hover;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $header-button-background-hover;
+      box-shadow: 0 0 0 2px rgb($header-button-background-hover, 0.6);
+    }
+  }
+}
+
+

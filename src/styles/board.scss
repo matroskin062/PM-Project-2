@@ -1,8 +1,6 @@
-@import "colors";
-
 .board {
   padding: 30px;
-  height: 100vh;
+  height: calc(100vh - 60px);
   width: 100vw;
   user-select: none;
 
@@ -16,7 +14,7 @@
     flex-wrap: nowrap;
     overflow-x: scroll;
     column-gap: 30px;
-    height: calc(100vh - 125px);
+    height: calc(100vh - 125px - 60px);
 
     .column {
       width: 300px;
@@ -56,6 +54,12 @@
         &:hover {
           cursor: pointer;
           background-color: $create-button-background-hover;
+        }
+
+        &:focus {
+          outline: none;
+          background-color: $create-button-background-hover;
+          box-shadow: 0 0 0 2px rgb($create-button-background-hover, 0.6);
         }
 
       }

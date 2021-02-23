@@ -1,5 +1,7 @@
-@import "reset.scss";
-@import "board.scss";
+@import "reset";
+@import "colors";
+@import "board";
+@import "header";
 
 body {
     background-color: $main-background;
