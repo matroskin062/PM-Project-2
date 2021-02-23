@@ -27,7 +27,6 @@ body{
 .edit-wrap{
     display: none;
 }
-
 .info-wrap{
     display: block;
 
@@ -68,7 +67,8 @@ body{
     display: block;
 }
 
-button, input[type="submit"], .button, .btn, input[type="button"]{
+button, .task-edit,
+.task-delete, input[type="submit"], .button, .btn, input[type="button"]{
     cursor: pointer;
 }
 
@@ -98,6 +98,7 @@ button, input[type="submit"], .button, .btn, input[type="button"]{
     bottom: 0;
     width: 100%;
     text-align: center;
+    padding: 30px 50px;
 }
 
 .no-login>.board,
@@ -149,11 +150,7 @@ button, input[type="submit"], .button, .btn, input[type="button"]{
     fill: var(--modal-text)
 }
 
-#test{
-    height: 50px;
-    position: absolute;
-    bottom: 50px;
-}
+
 .hr{
     height:2px;
     margin: 40px 0;
@@ -164,7 +161,7 @@ button, input[type="submit"], .button, .btn, input[type="button"]{
     float: left;
     margin: 25px 15px;
     height: 50px;
-    font-family: mistral;
+    font-family: mistral, cursive;
     text-shadow: var(--second-color) 1px 0 10px;
     font-size: 50px;
 }
@@ -175,7 +172,7 @@ button, input[type="submit"], .button, .btn, input[type="button"]{
     height: calc(100vh - 110px);
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 30px;
 
 }
 .task-group{
@@ -190,6 +187,7 @@ button, input[type="submit"], .button, .btn, input[type="button"]{
     width: 33px;
     height: 33px;
     float: right;
+    transform: translateX(13px);
 }
 .task-group>header>svg:hover{
     transform: rotate(90deg);
@@ -207,26 +205,50 @@ button, input[type="submit"], .button, .btn, input[type="button"]{
     padding-bottom: 15px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
 }
 .task{
     margin: 10px;
-    min-height: 200px;
+    min-height: 80px;
     background-color: var(--task-color);
-    border-radius: 50px;
-    padding: 30px;
+    border-radius: 20px;
+    padding: 15px;
 }
-
-.task>h3{
+.task:hover{
+    opacity: .8;
+    cursor: grab;
+}
+.task:active{
+    cursor: grabbing;
+}
+.task>div{
     font-size: 18px;
-    text-align: center;
-    text-decoration: underline;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
-.task p{
-    margin-top: 10px;
+.task-title{
+    font-size: 18px;
+    text-decoration: underline;
+    flex: 1;
+}
+.task-edit,
+.task-delete{
+    transform: rotate(180deg);
+}
+.task-edit:hover,
+.task-delete:hover{
+    color: #911515;
+}
+.task-desc{
+    margin-top: 5px;
     color: var(--main-text);
     opacity: .5;
     font-size: 14px;
+    text-align: justify;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .task .spend{
     display: block;

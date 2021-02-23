@@ -11,8 +11,8 @@ export default class SignIn extends Auth {
   static signIn() {
     const { user, pass } = SignIn;
     console.log(pass.value);
-    if (user.value.length < 6)
-      Auth.error.innerText = `Login at least six letter.`;
+    if (user.value.length < 3)
+      Auth.error.innerText = `Login at least three letter.`;
     else if (!Auth.regExpPass.test(pass.value)) {
       Auth.error.innerText = `Password must contain at least one letter, at least one number, and be longer than six charaters.`;
     } else {
@@ -21,6 +21,7 @@ export default class SignIn extends Auth {
         password: pass.value,
       })
         .then((data) => {
+          console.log(data);
           Auth.error.innerText = ``;
           return data;
         })

@@ -11,8 +11,8 @@ export default class SignUp extends Auth {
 
   static signUp() {
     const { user, pass, email } = SignUp;
-    if (user.value.length < 6)
-      Auth.error.innerText = `Login at least six letter.`;
+    if (user.value.length < 3)
+      Auth.error.innerText = `Login at least three letter.`;
     else if (!Auth.regExpPass.test(pass.value))
       Auth.error.innerText = `Password must contain at least one letter, at least one number, and be longer than six charaters.`;
     else if (!Auth.regExpEmail.test(email.value))
@@ -24,6 +24,7 @@ export default class SignUp extends Auth {
         password: pass.value,
       })
         .then((data) => {
+          console.log(data);
           Auth.error.innerText = ``;
           return data;
         })
