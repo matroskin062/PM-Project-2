@@ -1,3 +1,5 @@
+import CardUI from './CardUI';
+
 class ColumnUI {
   constructor(column, cards) {
     this.columnContainer = document.querySelector('.column-list');
@@ -22,8 +24,11 @@ class ColumnUI {
     column.append(cardList);
 
     this.columnContainer.append(column);
+
+    this.cards.forEach((card) => {
+      new CardUI(card).renderCard(cardList);
+    });
   }
-  // TODO: Cards rendering
 }
 
 export default ColumnUI;
