@@ -1,0 +1,141 @@
+.board {
+  padding: 30px;
+  height: calc(100vh - 60px);
+  width: 100vw;
+  user-select: none;
+
+  > .title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .column-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    column-gap: 30px;
+    height: calc(100vh - 125px - 60px);
+
+    .column {
+      width: 300px;
+      flex: 0 0 auto;
+      padding: 15px;
+      background-color: $column-background;
+      border-radius: 5px;
+      height: 95%;
+      overflow-y: hidden;
+
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
+
+      > .title {
+        font-size: 20px;
+        font-weight: 500;
+        color: $column-text;
+        margin-bottom: 20px;
+      }
+
+      .button {
+        width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        padding: 10px 0;
+        background-color: $create-button-background;
+        color: $column-text;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        margin-bottom: 20px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $create-button-background-hover;
+        }
+
+        &:focus {
+          outline: none;
+          background-color: $create-button-background-hover;
+          box-shadow: 0 0 0 2px rgb($create-button-background-hover, 0.6);
+        }
+
+      }
+
+      .create-card-form {
+        display: none;
+        flex-wrap: wrap;
+        flex-direction: row;
+        row-gap: 10px;
+        justify-content: space-between;
+
+        &.active {
+          display: flex;
+        }
+
+        .text-field {
+          width: 100%;
+          border-radius: 10px;
+          padding: 10px;
+          border: none;
+          outline: none;
+        }
+
+        > .confirm-button,
+        > .cancel-button {
+          width: 40%;
+        }
+      }
+
+      .card-list {
+        overflow-y: scroll;
+        height: 85%;
+        padding-bottom: 40px;
+
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+
+        .card {
+          width: 100%;
+          padding: 10px 15px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: space-between;
+          background-color: $card-background;
+          user-select: none;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-bottom: 15px;
+
+          &:hover .controls {
+            display: flex;
+          }
+
+          > .title {
+            font-size: 16px;
+            font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 75%;
+          }
+
+          > .controls {
+            display: none;
+            height: 100%;
+            column-gap: 5px;
+
+            img:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

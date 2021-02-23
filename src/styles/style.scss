@@ -1,0 +1,10 @@
+@import "reset";
+@import "colors";
+@import "header";
+@import "board";
+@import "modals";
+
+body {
+  background-color: $main-background;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
