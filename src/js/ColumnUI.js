@@ -1,3 +1,5 @@
+import AddFormUI from './AddFormUI';
+
 class ColumnUI {
   constructor(column, cards) {
     this.columnContainer = document.querySelector('.column-list');
@@ -18,7 +20,7 @@ class ColumnUI {
     cardList.classList.add('card-list');
 
     column.append(title);
-    /* TODO: Form */
+    new AddFormUI(this.status).render(column);
     column.append(cardList);
 
     this.columnContainer.append(column);

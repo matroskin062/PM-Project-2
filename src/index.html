@@ -1,471 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles/style.scss">
-</head>
-<body>
-
-<div id="login-modal" class="modal-container">
-    <div class="modal">
-        <img class="modal-close-btn" src="img/delete-icon.svg" alt="close">
+    <link rel="stylesheet" href="styles/style.scss" />
+  </head>
+  <body>
+    <div id="login-modal" class="modal-container">
+      <div class="modal">
+        <img class="modal-close-btn" src="img/delete-icon.svg" alt="close" />
         <p class="modal-title">Login Form</p>
         <div class="data">
-            <label for="identifier">Username or Email</label>
-            <input type="text" id="identifier">
+          <label for="identifier">Username or Email</label>
+          <input type="text" id="identifier" />
         </div>
         <div class="data">
-            <label for="login-pass">Password</label>
-            <input type="password" id="login-pass">
-            <div id="login-err" class="validation-error">Identifier or password invalid</div>
+          <label for="login-pass">Password</label>
+          <input type="password" id="login-pass" />
+          <div id="login-err" class="validation-error">
+            Identifier or password invalid
+          </div>
         </div>
-        <input class="modal-btn" type="button" value="Login">
-        <div class="link">Not a member? <a id="signup-redirect" href="#">Signup now</a></div>
+        <input class="modal-btn" type="button" value="Login" />
+        <div class="link">
+          Not a member? <a id="signup-redirect" href="#">Signup now</a>
+        </div>
+      </div>
     </div>
-</div>
 
-<div id="signup-modal" class="modal-container">
-    <div class="modal">
-        <img class="modal-close-btn" src="img/delete-icon.svg" alt="close">
+    <div id="signup-modal" class="modal-container">
+      <div class="modal">
+        <img class="modal-close-btn" src="img/delete-icon.svg" alt="close" />
         <p class="modal-title">SignUp Form</p>
         <div class="data">
-            <label for="username">Username</label>
-            <input type="text" id="username">
+          <label for="username">Username</label>
+          <input type="text" id="username" />
         </div>
         <div class="data">
-            <label for="email">Email</label>
-            <input type="email" id="email">
-            <div id="email-err" class="validation-error">Email is already taken.</div>
+          <label for="email">Email</label>
+          <input type="email" id="email" />
+          <div id="email-err" class="validation-error">
+            Email is already taken.
+          </div>
         </div>
         <div class="data">
-            <label for="signup-pass">Password</label>
-            <input type="password" id="signup-pass">
+          <label for="signup-pass">Password</label>
+          <input type="password" id="signup-pass" />
         </div>
-        <input class="modal-btn" type="button" value="Sign Up">
-        <div class="link">Already have an account? <a id="login-redirect" href="#">Login now</a></div>
+        <input class="modal-btn" type="button" value="Sign Up" />
+        <div class="link">
+          Already have an account? <a id="login-redirect" href="#">Login now</a>
+        </div>
+      </div>
     </div>
-</div>
 
-<div id="task-modal" class="modal-container active">
-    <div class="modal">
-        <img class="modal-close-btn" src="img/delete-icon.svg" alt="close">
+    <div id="task-modal" class="modal-container">
+      <div class="modal">
+        <img class="modal-close-btn" src="img/delete-icon.svg" alt="close" />
         <p class="modal-title">Task Form</p>
         <div class="data">
-            <label for="title">Title</label>
-            <input type="text" id="title">
-            <div id="title-err" class="validation-error">Title must be defined.</div>
+          <label for="title">Title</label>
+          <input type="text" id="title" />
+          <div id="title-err" class="validation-error">
+            Title must be defined.
+          </div>
         </div>
         <div class="data">
-            <label for="description">Description</label>
-            <textarea id="description"></textarea>
+          <label for="description">Description</label>
+          <textarea id="description"></textarea>
         </div>
-        <input class="modal-btn" type="button" value="Update Task">
+        <input class="modal-btn" type="button" value="Update Task" />
+      </div>
     </div>
-</div>
 
-<header>
-    <div class="user-info ">
-        <img src="./img/user-icon.svg" alt="user icon">
+    <header>
+      <div class="user-info">
+        <img src="./img/user-icon.svg" alt="user icon" />
         <p class="username">asdasdasd</p>
-        <input class="header-button" type="button" value="Logout">
-    </div>
-    <div class="auth active">
-        <input class="header-button" type="button" value="Login">
-        <input class="header-button" type="button" value="SignUp">
-    </div>
-</header>
+        <input class="header-button" type="button" value="Logout" />
+      </div>
+      <div class="auth active">
+        <input class="header-button" type="button" value="Login" />
+        <input class="header-button" type="button" value="SignUp" />
+      </div>
+    </header>
 
-<div class="board">
-    <h2 class="title">Task board</h2>
-    <ul class="column-list">
-        <li class="column">
-            <p class="title">To Do</p>
-            <input class="button" type="button" value="+ Add Task">
-            <div class="create-card-form">
-                <input class="text-field" type="text" placeholder="Title">
-                <input class="button cancel-button" type="button" value="Cancel">
-                <input class="button confirm-button" type="button" value="Add Task">
-            </div>
-            <ul class="card-list">
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="column">
-            <h2 class="title">In Progress</h2>
-            <div class="create-card-form active">
-                <input class="text-field" type="text" placeholder="Title">
-                <input class="button cancel-button" type="button" value="Cancel">
-                <input class="button confirm-button" type="button" value="Add Task">
-            </div>
-            <ul class="card-list">
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="column">
-            <h2 class="title">In Progress</h2>
-            <div class="create-card-form active">
-                <input class="text-field" type="text" placeholder="Title">
-                <input class="button cancel-button" type="button" value="Cancel">
-                <input class="button confirm-button" type="button" value="Add Task">
-            </div>
-            <ul class="card-list">
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="column">
-            <h2 class="title">In Progress</h2>
-            <div class="create-card-form active">
-                <input class="text-field" type="text" placeholder="Title">
-                <input class="button cancel-button" type="button" value="Cancel">
-                <input class="button confirm-button" type="button" value="Add Task">
-            </div>
-            <ul class="card-list">
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-                <li class="card">
-                    <p class="title">asasdsadasdasdsaddddddddddddddddd
-                        A/B testin
-                    </p>
-                    <div class="controls">
-                        <img src="img/update-icon.svg" alt="update">
-                        <img src="img/delete-icon.svg" alt="delete">
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
-
-</body>
+    <div class="board">
+      <h2 class="title">Task board</h2>
+      <ul class="column-list"></ul>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
 </html>
