@@ -39,8 +39,8 @@ class AddFormUI {
 
     this.cancelBtn.addEventListener('click', () => {
       this.form.classList.remove('active');
-    this.addBtn.style.display = 'block';
-    this.input.value = "";
+      this.addBtn.style.display = 'block';
+      this.input.value = '';
     });
 
     this.confirmBtn.addEventListener('click', async () => {
@@ -53,8 +53,9 @@ class AddFormUI {
 
         this.input.value = '';
 
-        const card = await CardAPI.createCard(newCard);
-        new CardUI(card).renderCard(target.querySelector('.card-list'));
+        CardAPI.createCard(newCard).then((card) =>
+          new CardUI(card).renderCard(target.querySelector('.card-list'))
+        );
       }
     });
   }
