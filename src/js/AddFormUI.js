@@ -1,4 +1,5 @@
 import CardAPI from './CardAPI';
+import CardUI from './CardUI';
 
 class AddFormUI {
   constructor(status) {
@@ -13,12 +14,13 @@ class AddFormUI {
     target.insertAdjacentHTML(
       'beforeend',
       `
-            <input class="button" type="button" value="+ Add Task">
-            <div class="create-card-form">
-                <input class="text-field" type="text" placeholder="Title">
-                <input class="button cancel-button" type="button" value="Cancel">
-                <input class="button confirm-button" type="button" value="Add Task">
-            </div>`
+        <input class="button" type="button" value="+ Add Task">
+        <div class="create-card-form">
+            <input class="text-field" type="text" placeholder="Title">
+            <input class="button cancel-button" type="button" value="Cancel">
+            <input class="button confirm-button" type="button" value="Add Task">
+        </div>
+      `
     );
     this.registerListeners(target);
   }
@@ -38,18 +40,23 @@ class AddFormUI {
     this.cancelBtn.addEventListener('click', () => {
       this.form.classList.remove('active');
       this.addBtn.style.display = 'block';
+      this.input.value = '';
     });
 
-    this.confirmBtn.addEventListener('click', () => {
-      const newCard = {
-        title: this.input.value,
-        description: '',
-        status: this.status,
-      };
+    this.confirmBtn.addEventListener('click', async () => {
+      if (this.input.value.trim()) {
+        const newCard = {
+          title: this.input.value,
+          description: '',
+          status: this.status,
+        };
 
-      this.input.value = '';
+        this.input.value = '';
 
-      CardAPI.createCard(newCard);
+        CardAPI.createCard(newCard).then((card) =>
+          new CardUI(card).renderCard(target.querySelector('.card-list'))
+        );
+      }
     });
   }
 }
