@@ -25,8 +25,8 @@ export default class AuthUI{
             signUpModal, modalClose, loginReDir, signupReDir } = UI;
 
         [openLogin, loginReDir].forEach(btn => btn.addEventListener('click', () => {
-            loginModal.style.display = 'block';
-            signUpModal.style.display = 'none';
+            loginModal.classList.add('active');
+            signUpModal.classList.remove('active');
         }));
 
         [openSignup, signupReDir].forEach(btn => btn.addEventListener('click', () => {
