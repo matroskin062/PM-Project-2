@@ -15,7 +15,7 @@ class CardUI {
 
     const title = document.createElement('p');
     title.classList.add('title');
-    title.innerHTML = this.title;
+    title.textContent = this.title;
 
     const controls = document.createElement('p');
     controls.classList.add('controls');
