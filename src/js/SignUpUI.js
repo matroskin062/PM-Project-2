@@ -42,11 +42,18 @@ export default class SignUp {
   }
 
   static errorLog(msg, target) {
+<<<<<<< HEAD
     const thisTarget = target;
 
     thisTarget.innerText = msg;
     setTimeout(() => {
       thisTarget.innerText = '';
     }, 2000);
+=======
+    target.innerText = msg;
+    setTimeout(() => {
+      target.innerText = "";
+    }, 2000)
+>>>>>>> AuthUI, Ui.init
   }
 }
