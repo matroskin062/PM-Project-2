@@ -1,4 +1,5 @@
 import AddFormUI from './AddFormUI';
+import CardUI from './CardUI';
 
 class ColumnUI {
   constructor(column, cards) {
@@ -24,8 +25,11 @@ class ColumnUI {
     column.append(cardList);
 
     this.columnContainer.append(column);
+
+    this.cards.forEach((card) => {
+      new CardUI(card).renderCard(cardList);
+    });
   }
-  // TODO: Cards rendering
 }
 
 export default ColumnUI;
