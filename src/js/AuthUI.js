@@ -1,54 +1,48 @@
 import SignIn from './SignInUI';
 import SignUp from './SignUpUI';
 
-export default class AuthUI {
-  constructor() {
-    this.loginButton = document.querySelector('#login-btn');
-    this.signUpButton = document.querySelector('#signup-btn');
-    this.openLogin = document.querySelector('#open-login');
-    this.loginReDir = document.querySelector('#login-redirect');
-    this.signupReDir = document.querySelector('#signup-redirect');
-    this.openSignup = document.querySelector('#open-signup');
-    this.loginModal = document.querySelector('#login-modal');
-    this.signUpModal = document.querySelector('#signup-modal');
-    this.modalClose = document.querySelectorAll('.modal-close-btn');
-  }
+export default class AuthUI{
+    static loginButton = document.querySelector('#login-btn');
 
-  init() {
-    const {
-      loginButton,
-      signUpButton,
-      openLogin,
-      openSignup,
-      loginModal,
-      signUpModal,
-      modalClose,
-      loginReDir,
-      signupReDir,
-    } = this;
+    static signUpButton = document.querySelector('#signup-btn');
 
-    [openLogin, loginReDir].forEach((btn) =>
-      btn.addEventListener('click', () => {
-        loginModal.classList.add('active');
-        signUpModal.classList.remove('active');
-      })
-    );
+    static openLogin = document.querySelector('#open-login');
 
-    [openSignup, signupReDir].forEach((btn) =>
-      btn.addEventListener('click', () => {
-        loginModal.classList.remove('active');
-        signUpModal.classList.add('active');
-      })
-    );
+    static loginReDir = document.querySelector('#login-redirect');
 
-    modalClose.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        loginModal.classList.remove('active');
-        signUpModal.classList.remove('active');
-      });
-    });
+    static signupReDir = document.querySelector('#signup-redirect');
 
-    loginButton.addEventListener('click', () => new SignIn().signIn());
-    signUpButton.addEventListener('click', () => new SignUp().signUp());
-  }
+    static openSignup = document.querySelector('#open-signup');
+
+    static loginModal = document.querySelector('#login-modal');
+
+    static signUpModal = document.querySelector('#signup-modal');
+
+    static modalClose = document.querySelectorAll('.modal-close-btn');
+
+    static init() {
+        const { loginButton, signUpButton, openLogin, openSignup, loginModal,
+            signUpModal, modalClose, loginReDir, signupReDir } = UI;
+
+        [openLogin, loginReDir].forEach(btn => btn.addEventListener('click', () => {
+            loginModal.classList.add('active');
+            signUpModal.classList.remove('active');
+        }));
+
+        [openSignup, signupReDir].forEach(btn => btn.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+            signUpModal.style.display = 'block';
+        }));
+
+        modalClose.forEach(btn => {
+            btn.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+                signUpModal.style.display = 'none';
+            });
+        })
+
+        loginButton.addEventListener('click', SignIn.signIn);
+        signUpButton.addEventListener('click', SignUp.signUp);
+    }
+
 }

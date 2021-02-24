@@ -38,6 +38,7 @@
   },
   "husky": {
     "hooks": {
+
     }
   },
   "lint-staged": {
