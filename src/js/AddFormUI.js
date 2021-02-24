@@ -39,7 +39,8 @@ class AddFormUI {
 
     this.cancelBtn.addEventListener('click', () => {
       this.form.classList.remove('active');
-      this.addBtn.style.display = 'block';
+    this.addBtn.style.display = 'block';
+    this.input.value = "";
     });
 
     this.confirmBtn.addEventListener('click', async () => {
