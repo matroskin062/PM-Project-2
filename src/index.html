@@ -56,9 +56,14 @@
       </div>
     </div>
 
-<div id="task-modal" class="modal-container">
-    <div class="modal">
-        <img id="task-cancel" class="modal-close-btn" src="img/delete-icon.svg" alt="close">
+    <div id="task-modal" class="modal-container">
+      <div class="modal">
+        <img
+          id="task-cancel"
+          class="modal-close-btn"
+          src="img/delete-icon.svg"
+          alt="close"
+        />
         <p class="modal-title">Task Form</p>
         <div class="data">
           <label for="title">Title</label>
@@ -71,27 +76,32 @@
           <label for="description">Description</label>
           <textarea id="description"></textarea>
         </div>
-        <input id="task-confirm" class="modal-btn" type="button" value="Update Task">
+        <input
+          id="task-confirm"
+          class="modal-btn"
+          type="button"
+          value="Update Task"
+        />
+      </div>
+
+      <header>
+        <div class="user-info">
+          <img src="./img/user-icon.svg" alt="user icon" />
+          <p class="username">asdasdasd</p>
+          <input class="header-button" type="button" value="Logout" />
+        </div>
+        <div class="auth active">
+          <input class="header-button" type="button" value="Login" />
+          <input class="header-button" type="button" value="SignUp" />
+        </div>
+      </header>
     </div>
 
-    <header>
-      <div class="user-info">
-        <img src="./img/user-icon.svg" alt="user icon" />
-        <p class="username">asdasdasd</p>
-        <input class="header-button" type="button" value="Logout">
+    <div class="board">
+      <h2 class="title">Task board</h2>
+      <ul class="column-list"></ul>
     </div>
-    <div class="auth active">
-        <input class="header-button" type="button" value="Login">
-        <input class="header-button" type="button" value="SignUp">
-    </div>
-</header>
+  </body>
 
-<div class="board">
-    <h2 class="title">Task board</h2>
-    <ul class="column-list"></ul>
-</div>
-
-</body>
-
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </html>
