@@ -1,3 +1,4 @@
+import AddFormUI from './AddFormUI';
 import CardUI from './CardUI';
 
 class ColumnUI {
@@ -20,7 +21,7 @@ class ColumnUI {
     cardList.classList.add('card-list');
 
     column.append(title);
-    /* TODO: Form */
+    new AddFormUI(this.status).render(column);
     column.append(cardList);
 
     this.columnContainer.append(column);
