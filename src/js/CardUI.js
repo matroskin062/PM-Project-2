@@ -1,7 +1,20 @@
 import updateIcon from '../img/update-icon.svg';
 import deleteIcon from '../img/delete-icon.svg';
+import CardAPI from './CardAPI';
 
 class CardUI {
+  static get modal() {
+    return document.querySelector('#task-modal');
+  }
+
+  static get confirmBtn() {
+    return document.querySelector('#task-confirm');
+  }
+
+  static get cancelBtn() {
+    return document.querySelector('#task-cancel');
+  }
+
   constructor({ id, title, status, description }) {
     this.id = id;
     this.title = title;
@@ -31,6 +44,17 @@ class CardUI {
     card.append(title, controls);
 
     target.appendChild(card);
+
+    const deleteHandler = (event) => {
+      event.preventDefault();
+      // eslint-disable-next-line no-alert
+      const isConfirm = window.confirm('Are you sure to delete this card?');
+      if (isConfirm) {
+        CardAPI.deleteCard(this.id).then(() => card.remove());
+      }
+    };
+
+    deleteBtn.addEventListener('click', deleteHandler);
   }
 }
 
