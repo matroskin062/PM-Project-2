@@ -12,7 +12,6 @@ export default class AuthAPI {
         User.token = data.jwt;
         return data;
       })
-      .catch(console.log);
   }
 
   static registration({ username, email, password }) {
@@ -26,6 +25,5 @@ export default class AuthAPI {
         User.token = data.jwt;
         return data;
       })
-      .catch(console.log);
   }
 }

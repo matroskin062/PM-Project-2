@@ -18,7 +18,8 @@ export default class SignIn{
       })
         .then(() => console.log('sign in')) // Передать даннные на UserUI
         .catch((e) => {
-          errorLog(e.message, error)
+          const errorMsg = e.response.data.message[0].messages[0].message
+          errorLog(errorMsg, error)
           return e;
         });
     }

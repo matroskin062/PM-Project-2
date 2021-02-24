@@ -1,7 +1,7 @@
 import SignIn from './SignInUI';
 import SignUp from './SignUpUI';
 
-export default class UI{
+export default class AuthUI{
     static loginButton = document.querySelector('#login-btn');
 
     static signUpButton = document.querySelector('#signup-btn');
