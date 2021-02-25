@@ -1,5 +1,9 @@
 import AuthAPI from './AuthAPI';
+
 import UserUI from './UserUI';
+
+import emitter from './EventEmitter';
+
 
 export default class SignUp {
   constructor() {
@@ -39,6 +43,10 @@ export default class SignUp {
         .then(()=> {
           signUpModal.classList.remove('active');
           new UserUI().init();
+
+        .then(() => {
+          emitter.emit('loggedIn');
+
         })
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message;

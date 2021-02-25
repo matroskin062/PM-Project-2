@@ -1,32 +1,50 @@
 // eslint-disable-next-line import/no-cycle
 import SignIn from './SignInUI';
 import SignUp from './SignUpUI';
+import User from './User';
+import emitter from './EventEmitter';
 
 export default class AuthUI {
-    constructor() {
-        this.loginButton = document.querySelector('#login-btn');
-        this.signUpButton = document.querySelector('#signup-btn');
-        this.openLogin = document.querySelector('#open-login');
-        this.loginReDir = document.querySelector('#login-redirect');
-        this.signupReDir = document.querySelector('#signup-redirect');
-        this.openSignup = document.querySelector('#open-signup');
-        this.loginModal = document.querySelector('#login-modal');
-        this.signUpModal = document.querySelector('#signup-modal');
-        this.modalClose = document.querySelectorAll('.modal-close-btn');
-    }
 
-    init() {
-        const {
-            loginButton,
-            signUpButton,
-            openLogin,
-            openSignup,
-            loginModal,
-            signUpModal,
-            modalClose,
-            loginReDir,
-            signupReDir,
-        } = this;
+  constructor() {
+    this.loginButton = document.querySelector('#login-btn');
+    this.signUpButton = document.querySelector('#signup-btn');
+    this.openLogin = document.querySelector('#open-login');
+    this.loginReDir = document.querySelector('#login-redirect');
+    this.signupReDir = document.querySelector('#signup-redirect');
+    this.openSignup = document.querySelector('#open-signup');
+    this.loginModal = document.querySelector('#login-modal');
+    this.signUpModal = document.querySelector('#signup-modal');
+    this.modalClose = document.querySelectorAll('.modal-close-btn');
+
+    this.init = this.init.bind();
+
+    this.registerListeners();
+    emitter.subscribe('loggedIn', this.init);
+  }
+
+  // TODO userInfo render
+  // eslint-disable-next-line class-methods-use-this
+  init() {
+    if (User.token) {
+      console.log(true);
+    } else {
+      console.log(false);
+    }
+  }
+
+  registerListeners() {
+    const {
+      loginButton,
+      signUpButton,
+      openLogin,
+      openSignup,
+      loginModal,
+      signUpModal,
+      modalClose,
+      loginReDir,
+      signupReDir,
+    } = this;
 
         [openLogin, loginReDir].forEach((btn) =>
             btn.addEventListener('click', () => {
