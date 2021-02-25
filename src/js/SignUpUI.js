@@ -21,11 +21,11 @@ export default class SignUp {
         /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/
     );
     let errors = 0;
-    if (user.value.length < 1) {
+    if (!user.value.trim()) {
       errorLog(`There is an empty field`, userError)
       errors++;
     }
-    if (pass.value.length < 1 ) {
+    if (!pass.value.trim()) {
       errorLog(`There is an empty field`, signupError)
       errors++;
     }
