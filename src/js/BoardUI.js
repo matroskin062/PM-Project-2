@@ -8,7 +8,7 @@ class BoardUI {
     this.columnContainer = document.querySelector('.column-list');
     this.init = this.init.bind(this);
 
-    emitter.subscribe('loggedIn', this.init);
+    emitter.subscribe('authEvent', this.init);
   }
 
   async render() {

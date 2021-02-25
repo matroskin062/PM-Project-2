@@ -4,7 +4,7 @@ import UserUI from './UserUI';
 
 export default class App {
   static init() {
-    new AuthUI().init();
+    new AuthUI().registerListeners();
     new UserUI().init();
     new BoardUI().init();
   }

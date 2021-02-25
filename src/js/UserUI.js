@@ -1,10 +1,14 @@
 import User from './User';
+import emitter from './EventEmitter';
 
 export default class UserUI {
   constructor() {
     this.AuthHead = document.querySelector('.auth');
     this.UserHead = document.querySelector('.user-info');
     this.userName = document.querySelector('#username-in-head');
+
+    this.init = this.init.bind(this);
+    emitter.subscribe('authEvent', this.init);
   }
 
   init() {
