@@ -6,10 +6,11 @@ export default class SignIn {
     this.pass = document.querySelector('#login-pass');
     this.idError = document.querySelector('#identifier-err');
     this.passError = document.querySelector('#password-err');
+    this.loginModal = document.querySelector('#login-modal');
   }
 
   signIn() {
-    const { user, pass, idError, passError } = this;
+    const { user, pass, idError, passError, loginModal} = this;
     let errors = 0;
     if (!user.value.trim()) {
       SignIn.errorLog(`There is an empty Username`, idError);
@@ -23,10 +24,14 @@ export default class SignIn {
       AuthAPI.login({
         identifier: user.value.trim(),
         password: pass.value.trim(),
-      }).catch((e) => {
-        const errorMsg = e.response.data.message[0].messages[0].message;
-        SignIn.errorLog(errorMsg, passError);
-      });
+      })
+        .then(()=> {
+          loginModal.classList.remove('active');
+        })
+        .catch((e) => {
+          const errorMsg = e.response.data.message[0].messages[0].message;
+          SignIn.errorLog(errorMsg, passError);
+        });
     }
   }
 

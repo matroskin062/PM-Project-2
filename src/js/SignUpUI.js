@@ -8,10 +8,11 @@ export default class SignUp {
     this.userError = document.querySelector('#username-err');
     this.emailError = document.querySelector('#email-err');
     this.signupError = document.querySelector('#signup-err');
+    this.signUpModal = document.querySelector('#signup-modal');
   }
 
   signUp() {
-    const { user, pass, email, userError, emailError, signupError } = this;
+    const { user, pass, email, userError, emailError, signupError, signUpModal } = this;
     const regExpEmail = new RegExp(
       /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/
     );
@@ -33,27 +34,25 @@ export default class SignUp {
         username: user.value.trim(),
         email: email.value.trim(),
         password: pass.value.trim(),
-      }).catch((e) => {
-        const errorMsg = e.response.data.message[0].messages[0].message;
-        SignUp.errorLog(errorMsg, signupError);
-        return e;
-      });
+      })
+        .then(()=> {
+          signUpModal.classList.remove('active');
+        })
+        .catch((e) => {
+          const errorMsg = e.response.data.message[0].messages[0].message;
+          SignUp.errorLog(errorMsg, signupError);
+          return e;
+        });
     }
   }
 
   static errorLog(msg, target) {
-<<<<<<< HEAD
     const thisTarget = target;
 
     thisTarget.innerText = msg;
     setTimeout(() => {
       thisTarget.innerText = '';
     }, 2000);
-=======
-    target.innerText = msg;
-    setTimeout(() => {
-      target.innerText = "";
-    }, 2000)
->>>>>>> AuthUI, Ui.init
+
   }
 }
