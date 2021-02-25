@@ -1,4 +1,5 @@
 import AuthAPI from './AuthAPI';
+import emitter from './EventEmitter';
 
 export default class SignUp {
   constructor() {
@@ -33,11 +34,15 @@ export default class SignUp {
         username: user.value.trim(),
         email: email.value.trim(),
         password: pass.value.trim(),
-      }).catch((e) => {
-        const errorMsg = e.response.data.message[0].messages[0].message;
-        SignUp.errorLog(errorMsg, signupError);
-        return e;
-      });
+      })
+        .then(() => {
+          emitter.emit('loggedIn');
+        })
+        .catch((e) => {
+          const errorMsg = e.response.data.message[0].messages[0].message;
+          SignUp.errorLog(errorMsg, signupError);
+          return e;
+        });
     }
   }
 

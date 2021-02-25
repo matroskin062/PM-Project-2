@@ -1,5 +1,7 @@
 import SignIn from './SignInUI';
 import SignUp from './SignUpUI';
+import User from './User';
+import emitter from './EventEmitter';
 
 export default class AuthUI {
   constructor() {
@@ -12,9 +14,24 @@ export default class AuthUI {
     this.loginModal = document.querySelector('#login-modal');
     this.signUpModal = document.querySelector('#signup-modal');
     this.modalClose = document.querySelectorAll('.modal-close-btn');
+
+    this.init = this.init.bind();
+
+    this.registerListeners();
+    emitter.subscribe('loggedIn', this.init);
   }
 
+  // TODO userInfo render
+  // eslint-disable-next-line class-methods-use-this
   init() {
+    if (User.token) {
+      console.log(true);
+    } else {
+      console.log(false);
+    }
+  }
+
+  registerListeners() {
     const {
       loginButton,
       signUpButton,
