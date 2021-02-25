@@ -1,30 +1,21 @@
 import updateIcon from '../img/update-icon.svg';
 import deleteIcon from '../img/delete-icon.svg';
 import CardAPI from './CardAPI';
+import CardModalUI from './CardModalUI';
 
 class CardUI {
-  static get modal() {
-    return document.querySelector('#task-modal');
-  }
-
-  static get confirmBtn() {
-    return document.querySelector('#task-confirm');
-  }
-
-  static get cancelBtn() {
-    return document.querySelector('#task-cancel');
-  }
-
   constructor({ id, title, status, description }) {
     this.id = id;
     this.title = title;
     this.status = status;
     this.description = description;
+
+    this.card = null;
   }
 
   renderCard(target) {
-    const card = document.createElement('li');
-    card.classList.add('card');
+    this.card = document.createElement('li');
+    this.card.classList.add('card');
 
     const title = document.createElement('p');
     title.classList.add('title');
@@ -41,20 +32,34 @@ class CardUI {
 
     controls.append(updateBtn, deleteBtn);
 
-    card.append(title, controls);
+    this.card.append(title, controls);
 
-    target.appendChild(card);
+    target.appendChild(this.card);
 
     const deleteHandler = (event) => {
       event.preventDefault();
       // eslint-disable-next-line no-alert
       const isConfirm = window.confirm('Are you sure to delete this card?');
       if (isConfirm) {
-        CardAPI.deleteCard(this.id).then(() => card.remove());
+        CardAPI.deleteCard(this.id).then(() => this.card.remove());
       }
     };
 
+    const updateHandler = (event) => {
+      event.preventDefault();
+      new CardModalUI(this).openModal();
+    };
+
+    updateBtn.addEventListener('click', updateHandler);
     deleteBtn.addEventListener('click', deleteHandler);
+  }
+
+  updateCardInfo({ title, description, status }) {
+    const cardTitle = this.card.querySelector('.title');
+    this.title = title;
+    this.description = description;
+    this.status = status;
+    cardTitle.textContent = this.title;
   }
 }
 
