@@ -28,8 +28,6 @@ export default class SignIn {
       })
         .then(()=> {
           loginModal.classList.remove('active');
-        })
-        .then(()=> {
           new UserUI().init(true);
         })
         .catch((e) => {
