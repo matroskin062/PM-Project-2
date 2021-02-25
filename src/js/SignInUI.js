@@ -4,7 +4,6 @@ import UserUI from './UserUI';
 
 import emitter from './EventEmitter';
 
-
 export default class SignIn {
   constructor() {
     this.user = document.querySelector('#identifier');
@@ -15,7 +14,7 @@ export default class SignIn {
   }
 
   signIn() {
-    const { user, pass, idError, passError, loginModal} = this;
+    const { user, pass, idError, passError, loginModal } = this;
     let errors = 0;
     if (!user.value.trim()) {
       SignIn.errorLog(`There is an empty Username`, idError);
@@ -30,14 +29,12 @@ export default class SignIn {
         identifier: user.value.trim(),
         password: pass.value.trim(),
       })
-
-        .then(()=> {
+        .then(() => {
           loginModal.classList.remove('active');
           new UserUI().init(true);
-
+        })
         .then(() => {
           emitter.emit('loggedIn');
-
         })
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message;
