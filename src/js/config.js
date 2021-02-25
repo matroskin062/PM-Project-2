@@ -1,5 +1,6 @@
 import axios from 'axios';
 import User from './User';
+import emitter from './EventEmitter';
 
 const END_POINT = 'https://radiant-temple-07706.herokuapp.com';
 
@@ -18,5 +19,15 @@ axiosInstance.interceptors.request.use((config) => {
   }
   return config;
 });
+
+axiosInstance.interceptors.response.use(
+  (res) => res,
+  (error) => {
+    if (error.response.status === 401) {
+      User.resetUser();
+      emitter.emit('authEvent');
+    }
+  }
+);
 
 export default axiosInstance;
