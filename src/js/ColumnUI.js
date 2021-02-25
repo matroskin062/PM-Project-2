@@ -22,7 +22,7 @@ class ColumnUI {
     const cardList = document.createElement('ul');
     cardList.classList.add('card-list');
 
-    this.dnd(cardList);
+    this.dragDropHandler(cardList);
 
     column.append(title);
     new AddFormUI(this.status).render(column);
@@ -35,14 +35,14 @@ class ColumnUI {
     });
   }
 
-  dnd(cardList) {
-    const getStatus = () => this.status;
+  dragDropHandler(cardList) {
+    const { status } = this;
     return new Sortable(cardList, {
       group: 'shared',
       animation: 150,
       onAdd({ item }) {
         const id = item.dataset.cardId;
-        CardAPI.updateCardStatus(id, getStatus());
+        CardAPI.updateCard(id, status);
       },
     });
   }
