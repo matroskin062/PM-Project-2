@@ -58,7 +58,7 @@ class SignUpUI {
         .then(() => {})
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message;
-          SignUpUI.errorLog(errorMsg, signupError);
+          SignUpUI.errorLog(errorMsg, emailError);
           return e;
         });
     }
