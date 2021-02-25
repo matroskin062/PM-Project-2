@@ -39,7 +39,9 @@
     "sortablejs": "^1.13.0"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.js": [
