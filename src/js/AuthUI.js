@@ -1,9 +1,11 @@
+// eslint-disable-next-line import/no-cycle
 import SignIn from './SignInUI';
 import SignUp from './SignUpUI';
 import User from './User';
 import emitter from './EventEmitter';
 
 export default class AuthUI {
+
   constructor() {
     this.loginButton = document.querySelector('#login-btn');
     this.signUpButton = document.querySelector('#signup-btn');
@@ -44,28 +46,35 @@ export default class AuthUI {
       signupReDir,
     } = this;
 
-    [openLogin, loginReDir].forEach((btn) =>
-      btn.addEventListener('click', () => {
-        loginModal.classList.add('active');
-        signUpModal.classList.remove('active');
-      })
-    );
+        [openLogin, loginReDir].forEach((btn) =>
+            btn.addEventListener('click', () => {
+                loginModal.classList.add('active');
+                signUpModal.classList.remove('active');
+            })
+        );
 
-    [openSignup, signupReDir].forEach((btn) =>
-      btn.addEventListener('click', () => {
-        loginModal.classList.remove('active');
-        signUpModal.classList.add('active');
-      })
-    );
+        [openSignup, signupReDir].forEach((btn) =>
+            btn.addEventListener('click', () => {
+                loginModal.classList.remove('active');
+                signUpModal.classList.add('active');
+            })
+        );
 
-    modalClose.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        loginModal.classList.remove('active');
-        signUpModal.classList.remove('active');
-      });
-    });
+        modalClose.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                loginModal.classList.remove('active');
+                signUpModal.classList.remove('active');
+            });
+        });
 
-    loginButton.addEventListener('click', () => new SignIn().signIn());
-    signUpButton.addEventListener('click', () => new SignUp().signUp());
-  }
+        document.addEventListener('click', (e) => {
+          if(e.target.classList.contains('active')){
+              loginModal.classList.remove('active');
+              signUpModal.classList.remove('active');
+          }
+        });
+
+        loginButton.addEventListener('click', () => new SignIn().signIn());
+        signUpButton.addEventListener('click', () => new SignUp().signUp());
+    }
 }

@@ -1,5 +1,9 @@
 import AuthAPI from './AuthAPI';
+
+import UserUI from './UserUI';
+
 import emitter from './EventEmitter';
+
 
 export default class SignUp {
   constructor() {
@@ -9,10 +13,11 @@ export default class SignUp {
     this.userError = document.querySelector('#username-err');
     this.emailError = document.querySelector('#email-err');
     this.signupError = document.querySelector('#signup-err');
+    this.signUpModal = document.querySelector('#signup-modal');
   }
 
   signUp() {
-    const { user, pass, email, userError, emailError, signupError } = this;
+    const { user, pass, email, userError, emailError, signupError, signUpModal } = this;
     const regExpEmail = new RegExp(
       /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/
     );
@@ -35,8 +40,13 @@ export default class SignUp {
         email: email.value.trim(),
         password: pass.value.trim(),
       })
+        .then(()=> {
+          signUpModal.classList.remove('active');
+          new UserUI().init();
+
         .then(() => {
           emitter.emit('loggedIn');
+
         })
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message;
@@ -53,5 +63,6 @@ export default class SignUp {
     setTimeout(() => {
       thisTarget.innerText = '';
     }, 2000);
+
   }
 }
