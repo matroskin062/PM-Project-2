@@ -10,8 +10,9 @@ export default class AuthAPI {
       })
       .then(({ data }) => {
         User.token = data.jwt;
+        User.username = data.user.username;
         return data;
-      })
+      });
   }
 
   static registration({ username, email, password }) {
@@ -23,7 +24,8 @@ export default class AuthAPI {
       })
       .then(({ data }) => {
         User.token = data.jwt;
+        User.username = data.user.username;
         return data;
-      })
+      });
   }
 }

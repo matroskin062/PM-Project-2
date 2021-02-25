@@ -16,6 +16,7 @@ class CardUI {
   renderCard(target) {
     this.card = document.createElement('li');
     this.card.classList.add('card');
+    this.card.dataset.cardId = this.id;
 
     const title = document.createElement('p');
     title.classList.add('title');
