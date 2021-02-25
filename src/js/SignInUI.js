@@ -12,10 +12,10 @@ export default class SignIn{
   signIn() {
     const { user, pass, idError, passError, errorLog} = this;
     let errors = 0;
-    if (user.value.length < 1) {
+    if (!user.value.trim()) {
       errorLog(`There is an empty Username`, idError);
       errors++;
-    }if (pass.value.length < 1) {
+    }if (!pass.value.trim()) {
       errorLog(`There is an empty Password`, passError);
       errors++;
     }
