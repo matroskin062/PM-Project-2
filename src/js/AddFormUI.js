@@ -15,11 +15,11 @@ class AddFormUI {
       'beforeend',
       `
         <input class="button" type="button" value="+ Add Task">
-        <div class="create-card-form">
-            <input class="text-field" type="text" placeholder="Title">
-            <input class="button cancel-button" type="button" value="Cancel">
-            <input class="button confirm-button" type="button" value="Add Task">
-        </div>
+        <form class="create-card-form">
+              <input class="text-field" type="text" placeholder="Title">
+              <input class="button cancel-button" type="button" value="Cancel">
+              <input class="button confirm-button" type="button" value="Add Task">
+        </form>
       `
     );
     this.registerListeners(target);
@@ -43,7 +43,7 @@ class AddFormUI {
       this.input.value = '';
     });
 
-    this.confirmBtn.addEventListener('click', async () => {
+    const postCard = () => {
       if (this.input.value.trim()) {
         const newCard = {
           title: this.input.value,
@@ -57,7 +57,14 @@ class AddFormUI {
           new CardUI(card).renderCard(target.querySelector('.card-list'))
         );
       }
+    };
+
+    this.form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      postCard();
     });
+
+    this.confirmBtn.addEventListener('click', () => postCard);
   }
 }
 
