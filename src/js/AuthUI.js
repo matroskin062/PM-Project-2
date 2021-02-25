@@ -2,47 +2,48 @@ import SignIn from './SignInUI';
 import SignUp from './SignUpUI';
 
 export default class AuthUI{
-    static loginButton = document.querySelector('#login-btn');
+    loginButton = document.querySelector('#login-btn');
 
-    static signUpButton = document.querySelector('#signup-btn');
+    signUpButton = document.querySelector('#signup-btn');
 
-    static openLogin = document.querySelector('#open-login');
+    openLogin = document.querySelector('#open-login');
 
-    static loginReDir = document.querySelector('#login-redirect');
+    loginReDir = document.querySelector('#login-redirect');
 
-    static signupReDir = document.querySelector('#signup-redirect');
+    signupReDir = document.querySelector('#signup-redirect');
 
-    static openSignup = document.querySelector('#open-signup');
+    openSignup = document.querySelector('#open-signup');
 
-    static loginModal = document.querySelector('#login-modal');
+    loginModal = document.querySelector('#login-modal');
 
-    static signUpModal = document.querySelector('#signup-modal');
+    signUpModal = document.querySelector('#signup-modal');
 
-    static modalClose = document.querySelectorAll('.modal-close-btn');
+    modalClose = document.querySelectorAll('.modal-close-btn');
 
-    static init() {
+    init() {
         const { loginButton, signUpButton, openLogin, openSignup, loginModal,
-            signUpModal, modalClose, loginReDir, signupReDir } = UI;
+            signUpModal, modalClose, loginReDir, signupReDir } = this;
 
         [openLogin, loginReDir].forEach(btn => btn.addEventListener('click', () => {
             loginModal.classList.add('active');
-            signUpModal.classList.remove('active');
+            signUpModal.classList.contains('active') && signUpModal.classList.remove('active');
         }));
 
         [openSignup, signupReDir].forEach(btn => btn.addEventListener('click', () => {
-            loginModal.style.display = 'none';
-            signUpModal.style.display = 'block';
+            loginModal.classList.contains('active') && loginModal.classList.remove('active');
+            signUpModal.classList.add('active');
         }));
 
         modalClose.forEach(btn => {
             btn.addEventListener('click', () => {
-                loginModal.style.display = 'none';
-                signUpModal.style.display = 'none';
+                loginModal.classList.contains('active') && loginModal.classList.remove('active');
+                signUpModal.classList.contains('active') && signUpModal.classList.remove('active');
             });
         })
 
-        loginButton.addEventListener('click', SignIn.signIn);
-        signUpButton.addEventListener('click', SignUp.signUp);
+        loginButton.addEventListener('click', () =>  new SignIn().signIn());
+        signUpButton.addEventListener('click', () =>  new SignUp().signUp());
     }
+
 
 }
