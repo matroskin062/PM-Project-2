@@ -21,7 +21,7 @@ axiosInstance.interceptors.request.use((config) => {
 });
 
 axiosInstance.interceptors.response.use(
-  (res) => console.log(res),
+  () => {},
   (error) => {
     if (error.response.status === 401) {
       User.resetUser();
