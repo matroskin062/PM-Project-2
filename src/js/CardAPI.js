@@ -50,4 +50,13 @@ export default class CardAPI {
       .then((response) => response.data)
       .catch(console.log);
   }
+
+  static updateCardStatus(id, status) {
+    return axiosInstance
+      .put(`/cards/${id}`, {
+        id,
+        status,
+      })
+      .then((response) => response.data);
+  }
 }

@@ -33,7 +33,8 @@
   "dependencies": {
     "@babel/runtime": "^7.12.18",
     "axios": "^0.21.1",
-    "reset.scss": "^1.0.0"
+    "reset.scss": "^1.0.0",
+    "sortablejs": "^1.13.0"
   },
   "husky": {
     "hooks": {
