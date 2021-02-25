@@ -1,4 +1,6 @@
+import Sortable from 'sortablejs';
 import AddFormUI from './AddFormUI';
+import CardAPI from './CardAPI';
 import CardUI from './CardUI';
 
 class ColumnUI {
@@ -20,6 +22,8 @@ class ColumnUI {
     const cardList = document.createElement('ul');
     cardList.classList.add('card-list');
 
+    this.dragDropHandler(cardList);
+
     column.append(title);
     new AddFormUI(this.status).render(column);
     column.append(cardList);
@@ -28,6 +32,18 @@ class ColumnUI {
 
     this.cards.forEach((card) => {
       new CardUI(card).renderCard(cardList);
+    });
+  }
+
+  dragDropHandler(cardList) {
+    const { status } = this;
+    return new Sortable(cardList, {
+      group: 'shared',
+      animation: 150,
+      onAdd({ item }) {
+        const id = item.dataset.cardId;
+        CardAPI.updateCard(id, status);
+      },
     });
   }
 }
