@@ -1,5 +1,5 @@
-import SignIn from './SignInUI';
-import SignUp from './SignUpUI';
+import signInUI from './SignInUI';
+import signUpUI from './SignUpUI';
 import User from './User';
 import emitter from './EventEmitter';
 
@@ -59,8 +59,8 @@ export default class AuthUI {
       }
     });
 
-    loginButton.addEventListener('click', () => new SignIn().signIn());
-    signUpButton.addEventListener('click', () => new SignUp().signUp());
+    loginButton.addEventListener('click', () => signInUI.signIn());
+    signUpButton.addEventListener('click', () => signUpUI.signUp());
     logOutBtn.addEventListener('click', () => {
       User.resetUser();
       emitter.emit('authEvent');
