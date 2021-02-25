@@ -17,7 +17,7 @@ export default class AuthUI {
     this.logOutBtn = document.querySelector('#logout-btn');
   }
 
-  registerListeners() {
+  init() {
     const {
       loginButton,
       signUpButton,
