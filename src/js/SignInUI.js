@@ -1,41 +1,40 @@
 import AuthAPI from './AuthAPI';
 
-export default class SignIn{
-  user = document.querySelector('#identifier');
-
-  pass = document.querySelector('#login-pass');
-
-  idError = document.querySelector('#identifier-err');
-
-  passError = document.querySelector('#password-err');
+export default class SignIn {
+  constructor() {
+    this.user = document.querySelector('#identifier');
+    this.pass = document.querySelector('#login-pass');
+    this.idError = document.querySelector('#identifier-err');
+    this.passError = document.querySelector('#password-err');
+  }
 
   signIn() {
-    const { user, pass, idError, passError, errorLog} = this;
+    const { user, pass, idError, passError } = this;
     let errors = 0;
     if (!user.value.trim()) {
-      errorLog(`There is an empty Username`, idError);
-      errors++;
-    }if (!pass.value.trim()) {
-      errorLog(`There is an empty Password`, passError);
-      errors++;
+      SignIn.errorLog(`There is an empty Username`, idError);
+      errors += 1;
+    }
+    if (!pass.value.trim()) {
+      SignIn.errorLog(`There is an empty Password`, passError);
+      errors += 1;
     }
     if (errors === 0) {
       AuthAPI.login({
         identifier: user.value.trim(),
         password: pass.value.trim(),
-      })
-        .catch((e) => {
-          const errorMsg = e.response.data.message[0].messages[0].message;
-          errorLog(errorMsg, passError);
-          return e;
-        });
+      }).catch((e) => {
+        const errorMsg = e.response.data.message[0].messages[0].message;
+        SignIn.errorLog(errorMsg, passError);
+      });
     }
   }
 
-  errorLog(msg, target) {
-    target.innerText = msg;
+  static errorLog(msg, target) {
+    const thisTarget = target;
+    thisTarget.innerText = msg;
     setTimeout(() => {
-      target.innerText = "";
+      thisTarget.innerText = '';
     }, 2000);
   }
 }
