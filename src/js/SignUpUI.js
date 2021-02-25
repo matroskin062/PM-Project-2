@@ -35,9 +35,9 @@ export default class SignUp {
     }
     if (errors === 0){
       AuthAPI.registration({
-        username: user.value,
-        email: email.value,
-        password: pass.value,
+        username: user.value.trim(),
+        email: email.value.trim(),
+        password: pass.value.trim(),
       })
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message
