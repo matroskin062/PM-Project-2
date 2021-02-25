@@ -21,8 +21,8 @@ export default class SignIn{
     }
     if (errors === 0) {
       AuthAPI.login({
-        identifier: user.value,
-        password: pass.value,
+        identifier: user.value.trim(),
+        password: pass.value.trim(),
       })
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message;
