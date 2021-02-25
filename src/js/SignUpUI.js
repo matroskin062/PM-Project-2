@@ -1,4 +1,5 @@
 import AuthAPI from './AuthAPI';
+import UserUI from './UserUI';
 
 export default class SignUp {
   constructor() {
@@ -37,6 +38,9 @@ export default class SignUp {
       })
         .then(()=> {
           signUpModal.classList.remove('active');
+        })
+        .then(()=> {
+          new UserUI().init();
         })
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message;
