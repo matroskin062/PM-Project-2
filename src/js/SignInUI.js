@@ -1,10 +1,7 @@
 import AuthAPI from './AuthAPI';
-
-import UserUI from './UserUI';
-
 import emitter from './EventEmitter';
 
-export default class SignIn {
+class SignInUI {
   constructor() {
     this.user = document.querySelector('#identifier');
     this.pass = document.querySelector('#login-pass');
@@ -13,15 +10,20 @@ export default class SignIn {
     this.loginModal = document.querySelector('#login-modal');
   }
 
+  resetFields() {
+    this.user.value = '';
+    this.pass.value = '';
+  }
+
   signIn() {
     const { user, pass, idError, passError, loginModal } = this;
     let errors = 0;
     if (!user.value.trim()) {
-      SignIn.errorLog(`There is an empty Username`, idError);
+      SignInUI.errorLog(`There is an empty Username`, idError);
       errors += 1;
     }
     if (!pass.value.trim()) {
-      SignIn.errorLog(`There is an empty Password`, passError);
+      SignInUI.errorLog(`There is an empty Password`, passError);
       errors += 1;
     }
     if (errors === 0) {
@@ -31,14 +33,12 @@ export default class SignIn {
       })
         .then(() => {
           loginModal.classList.remove('active');
-          new UserUI().init(true);
-        })
-        .then(() => {
-          emitter.emit('loggedIn');
+          this.resetFields();
+          emitter.emit('authEvent');
         })
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message;
-          SignIn.errorLog(errorMsg, passError);
+          SignInUI.errorLog(errorMsg, passError);
         });
     }
   }
@@ -51,3 +51,5 @@ export default class SignIn {
     }, 2000);
   }
 }
+
+export default new SignInUI();

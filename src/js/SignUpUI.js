@@ -1,8 +1,7 @@
 import AuthAPI from './AuthAPI';
-import UserUI from './UserUI';
 import emitter from './EventEmitter';
 
-export default class SignUp {
+class SignUpUI {
   constructor() {
     this.user = document.querySelector('#username');
     this.pass = document.querySelector('#signup-pass');
@@ -11,6 +10,12 @@ export default class SignUp {
     this.emailError = document.querySelector('#email-err');
     this.signupError = document.querySelector('#signup-err');
     this.signUpModal = document.querySelector('#signup-modal');
+  }
+
+  resetFields() {
+    this.user.value = '';
+    this.pass.value = '';
+    this.email.value = '';
   }
 
   signUp() {
@@ -28,15 +33,15 @@ export default class SignUp {
     );
     let errors = 0;
     if (!user.value.trim()) {
-      SignUp.errorLog(`There is an empty field`, userError);
+      SignUpUI.errorLog(`There is an empty field`, userError);
       errors += 1;
     }
     if (!pass.value.trim()) {
-      SignUp.errorLog(`There is an empty field`, signupError);
+      SignUpUI.errorLog(`There is an empty field`, signupError);
       errors += 1;
     }
     if (!regExpEmail.test(email.value)) {
-      SignUp.errorLog(`Invalid email example@test.io`, emailError);
+      SignUpUI.errorLog(`Invalid email example@test.io`, emailError);
       errors += 1;
     }
     if (errors === 0) {
@@ -47,14 +52,13 @@ export default class SignUp {
       })
         .then(() => {
           signUpModal.classList.remove('active');
-          new UserUI().init();
+          this.resetFields();
+          emitter.emit('authEvent');
         })
-        .then(() => {
-          emitter.emit('loggedIn');
-        })
+        .then(() => {})
         .catch((e) => {
           const errorMsg = e.response.data.message[0].messages[0].message;
-          SignUp.errorLog(errorMsg, signupError);
+          SignUpUI.errorLog(errorMsg, signupError);
           return e;
         });
     }
@@ -69,3 +73,5 @@ export default class SignUp {
     }, 2000);
   }
 }
+
+export default new SignUpUI();
