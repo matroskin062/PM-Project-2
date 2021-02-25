@@ -42,7 +42,10 @@ class ColumnUI {
       animation: 150,
       onAdd({ item }) {
         const id = item.dataset.cardId;
-        CardAPI.updateCard(id, status);
+        CardAPI.updateCard({
+          id,
+          status,
+        });
       },
     });
   }
