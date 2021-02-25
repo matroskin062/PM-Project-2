@@ -9,16 +9,14 @@ export default class UserUI {
 
   init() {
     const { AuthHead, UserHead, userName } = this;
-    const user = User.username;
     if (User.token) {
-      userName.innerText = user;
+      userName.innerText = User.username;
       UserHead.classList.add('active');
       AuthHead.classList.remove('active');
-      return true;
+    } else {
+      userName.innerText = '';
+      AuthHead.classList.add('active');
+      UserHead.classList.remove('active');
     }
-    userName.innerText = '';
-    AuthHead.classList.add('active');
-    UserHead.classList.remove('active');
-    return false;
   }
 }
