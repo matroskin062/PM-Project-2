@@ -38,8 +38,6 @@ export default class SignUp {
       })
         .then(()=> {
           signUpModal.classList.remove('active');
-        })
-        .then(()=> {
           new UserUI().init();
         })
         .catch((e) => {
