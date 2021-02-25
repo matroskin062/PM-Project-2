@@ -4,7 +4,7 @@ import AuthUI from './AuthUI';
 export default class App {
   static init() {
     new BoardUI().render();
-    AuthUI.init();
+    new AuthUI().init();
   }
 
 }
