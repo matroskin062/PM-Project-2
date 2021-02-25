@@ -26,18 +26,18 @@ export default class AuthUI{
 
         [openLogin, loginReDir].forEach(btn => btn.addEventListener('click', () => {
             loginModal.classList.add('active');
-            signUpModal.classList.contains('active') && signUpModal.classList.remove('active');
+            signUpModal.classList.remove('active');
         }));
 
         [openSignup, signupReDir].forEach(btn => btn.addEventListener('click', () => {
-            loginModal.classList.contains('active') && loginModal.classList.remove('active');
+            loginModal.classList.remove('active');
             signUpModal.classList.add('active');
         }));
 
         modalClose.forEach(btn => {
             btn.addEventListener('click', () => {
-                loginModal.classList.contains('active') && loginModal.classList.remove('active');
-                signUpModal.classList.contains('active') && signUpModal.classList.remove('active');
+                loginModal.classList.remove('active');
+                signUpModal.classList.remove('active');
             });
         })
 
