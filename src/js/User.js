@@ -14,4 +14,8 @@ export default class User {
   static set username(username) {
     window.localStorage.setItem('username', username);
   }
+
+  static resetUser() {
+    window.localStorage.clear();
+  }
 }
