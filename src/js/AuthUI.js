@@ -1,5 +1,7 @@
 import SignIn from './SignInUI';
 import SignUp from './SignUpUI';
+import User from './User';
+import emitter from './EventEmitter';
 
 export default class AuthUI {
   constructor() {
@@ -12,6 +14,7 @@ export default class AuthUI {
     this.loginModal = document.querySelector('#login-modal');
     this.signUpModal = document.querySelector('#signup-modal');
     this.modalClose = document.querySelectorAll('.modal-close-btn');
+    this.logOutBtn = document.querySelector('#logout-btn');
   }
 
   registerListeners() {
@@ -25,6 +28,7 @@ export default class AuthUI {
       modalClose,
       loginReDir,
       signupReDir,
+      logOutBtn,
     } = this;
 
     [openLogin, loginReDir].forEach((btn) =>
@@ -57,5 +61,9 @@ export default class AuthUI {
 
     loginButton.addEventListener('click', () => new SignIn().signIn());
     signUpButton.addEventListener('click', () => new SignUp().signUp());
+    logOutBtn.addEventListener('click', () => {
+      User.resetUser();
+      emitter.emit('authEvent');
+    });
   }
 }
