@@ -1,13 +1,13 @@
 # Requirements
 
-[ ]Implement JWT-based auth
-[x]Render columns with different statuses
-[x]Render cards in columns depend on status
-[x]Implement adding, deleting, updating of cards
+- [x] Implement JWT-based auth
+- [x] Render columns with different statuses
+- [x] Render cards in columns depend on status
+- [x] Implement adding, deleting, updating of cards
 
 ## Additional features
 
-[x]Implement Drag'n'Drop
+- [x] Implement Drag'n'Drop
 
 # Built with
 
@@ -18,6 +18,7 @@
 - eslint
 - prettier
 - pre-commit hooks
+- scss
 
 # Getting started
 
@@ -33,4 +34,4 @@ Run dev server:
   npm run dev
 ```
 
-Open [http://localhost:1234](http://localhost:1234) in your browser
+## Open [http://localhost:1234](http://localhost:1234) in your browser
