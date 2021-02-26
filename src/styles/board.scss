@@ -25,11 +25,9 @@
       height: 95%;
       overflow-y: hidden;
 
-
       &::-webkit-scrollbar {
         width: 0;
       }
-
 
       > .title {
         font-size: 20px;
@@ -61,7 +59,6 @@
           background-color: $create-button-background-hover;
           box-shadow: 0 0 0 2px rgb($create-button-background-hover, 0.6);
         }
-
       }
 
       .create-card-form {
@@ -86,6 +83,14 @@
         > .confirm-button,
         > .cancel-button {
           width: 40%;
+        }
+
+        > .confirm-button {
+          background-color: $confirm-btn-color;
+          color: white;
+          &:hover {
+            background-color: $confirm-btn-color-hover;
+          }
         }
       }
 
@@ -135,7 +140,6 @@
           }
         }
       }
-
     }
   }
 }

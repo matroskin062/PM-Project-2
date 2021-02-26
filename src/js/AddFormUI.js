@@ -18,7 +18,7 @@ class AddFormUI {
         <form class="create-card-form">
               <input class="text-field" type="text" placeholder="Title">
               <input class="button cancel-button" type="button" value="Cancel">
-              <input class="button confirm-button" type="button" value="Add Task">
+              <input class="button confirm-button" type="submit" value="Add Task">
         </form>
       `
     );
