@@ -3,6 +3,8 @@ Trello clone built with Vanilla JS using ES6 Classes
 
 Full way of development you can discover in ✅[closed Pull Requests](https://github.com/alexgul1/PM-Project-2/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed), where we actively 🧐reviewed code of each other.
 
+[Deploy](https://matroskin062.github.io/PM-Project-2/)
+
 # Requirements 🧾
 
 - [x] Implement JWT-based auth
