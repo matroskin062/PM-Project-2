@@ -1,3 +1,8 @@
+# About
+Trello clone built with Vanilla JS using ES6 Classes
+
+Full way of development you can discover in [closed Pull Requests](https://github.com/alexgul1/PM-Project-2/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed), where we actively reviewed code of each other.
+
 # Requirements
 
 - [x] Implement JWT-based auth
@@ -15,12 +20,20 @@
 - ES6 classes
 - axios
 - Sortable.js
-- eslint
+- eslint with airbnb config
 - prettier
+- git
 - pre-commit hooks
 - scss
 
 # Getting started
+
+Clone repo to your local machine:
+
+```git
+git clone https://github.com/alexgul1/PM-Project-2.git  
+cd PM-Project-2
+```
 
 Install all dependencies:
 
@@ -35,3 +48,8 @@ Run dev server:
 ```
 
 ## Open [http://localhost:1234](http://localhost:1234) in your browser
+
+# Team
+[Sasha Hulitskyi](https://github.com/alexgul1) - [branch](https://github.com/alexgul1/PM-Project-2/tree/hulitskyi-dev)    
+[Dima Musatov](https://github.com/matroskin062) - [branch](https://github.com/alexgul1/PM-Project-2/tree/musatov)  
+[Artem Martyniuk](https://github.com/muartem) - [branch1](https://github.com/alexgul1/PM-Project-2/tree/N-muartem) [branch2](https://github.com/alexgul1/PM-Project-2/tree/muartem) 
