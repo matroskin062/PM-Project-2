@@ -49,6 +49,12 @@ class CardModalUI {
     confirmBtn.addEventListener('click', (event) => {
       this.updateCard(event);
     });
+
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('active')) {
+        e.target.classList.remove('active');
+      }
+    });
   }
 }
 
